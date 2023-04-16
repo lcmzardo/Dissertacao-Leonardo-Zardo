@@ -1,0 +1,83 @@
+#Ao se tratar de um modelo logit, é importante destacar que o cálculo da probabilidade é feito de uma categoria em relação a outra categoria (no caso de modelo binário). Por isso, é importante verificar as categorias de referencias pois irão influenciar diretamente no resultado. 
+
+levels(baseind19acessointernet$variables$SEXO)
+levels(baseind19acessointernet$variables$RACA)
+levels(baseind19acessointernet$variables$RacaMod)
+levels(baseind19acessointernet$variables$FaixaIdosomod)
+levels(baseind19acessointernet$variables$FaixaCriançamod)
+levels(baseind19acessointernet$variables$FaixaJovemmod)
+levels(baseind19acessointernet$variables$FaixaAdultamod)
+levels(baseind19acessointernet$variables$FaixaIdosomod)
+levels(baseind19acessointernet$variables$Sexomod)
+levels(baseind19acessointernet$variables$RacaMod)
+levels(baseind19acessointernet$variables$Instrucao1Mod)
+levels(baseind19acessointernet$variables$Instrucao2Mod)
+levels(baseind19acessointernet$variables$Instrucao3Mod)
+levels(baseind19acessointernet$variables$Instrucao4Mod)
+levels(baseind19acessointernet$variables$ocup_informatizada_modelo)
+levels(baseind19acessointernet$variables$dispositivos_modelo)
+levels(baseind19acessointernet$variables$hab_computacionais_modelo)
+levels(baseind19acessointernet$variables$AREA)
+levels(baseind19acessointernet$variables$ClasseA)
+levels(baseind19acessointernet$variables$ClasseB)
+levels(baseind19acessointernet$variables$ClasseC)
+levels(baseind19acessointernet$variables$ClasseD)
+levels(baseind19acessointernet$variables$PEA_2)
+levels(baseind19acessointernet$variables$NORTE)
+levels(baseind19acessointernet$variables$SUL)
+levels(baseind19acessointernet$variables$SUDESTE)
+levels(baseind19acessointernet$variables$CentroOeste)
+levels(baseind19acessointernet$variables$NORDESTE)
+levels(baseind19acessointernet$variables$hab_culturais_gerais_modelo)
+levels(baseind19acessointernet$variables$hab_culturais_gerais)
+levels(baseind19acessointernet$variables$hab_culturais_pagos_modelo)
+levels(baseind19acessointernet$variables$hab_culturais_gratuitos_modelo)
+levels(baseind19acessointernet$variables$hab_audiovisual_modelo)
+levels(baseind19acessointernet$variables$hab_musica_modelo)
+levels(baseind19acessointernet$variables$hab_museu_modelo)
+levels(baseind19acessointernet$variables$hab_games_modelo)
+levels(baseind19acessointernet$variables$NORDESTE)
+levels(baseind19acessointernet$variables$ocup_informatizada_modelo)
+levels(baseind19acessointernet$variables$RacaModelo)
+
+##### Neste caso, foi necessáro inverter os levels das categorias de referencia, tanto para variaveis independentes quanto para váriaveis dependentes do modelo #####
+#Variáveis Independentes/Explicadas
+baseind19acessointernet$variables$hab_culturais_gerais_modelo <- relevel(baseind19acessointernet$variables$hab_culturais_gerais_modelo, ref = "Não")
+baseind19acessointernet$variables$hab_culturais_pagos_modelo <- relevel(baseind19acessointernet$variables$hab_culturais_pagos_modelo, ref = "Não")
+baseind19acessointernet$variables$hab_culturais_gratuitos_modelo <- relevel(baseind19acessointernet$variables$hab_culturais_gratuitos_modelo, ref = "Não")
+
+#Variável Dependente/Explicativa: Classe
+baseind19acessointernet$variables$ClasseA <- relevel(baseind19acessointernet$variables$ClasseA, ref = "Outros")
+baseind19acessointernet$variables$ClasseB <- relevel(baseind19acessointernet$variables$ClasseB, ref = "Outros")
+baseind19acessointernet$variables$ClasseC <- relevel(baseind19acessointernet$variables$ClasseC, ref = "Outros")
+baseind19acessointernet$variables$ClasseDE <- relevel(baseind19acessointernet$variables$ClasseDE, ref = "Outros")
+
+#Variável Dependente/Explicativa: Instrucao 
+baseind19acessointernet$variables$Instrucao1Mod <- relevel(baseind19acessointernet$variables$Instrucao1Mod, ref = "Outros")
+baseind19acessointernet$variables$Instrucao2Mod <- relevel(baseind19acessointernet$variables$Instrucao2Mod, ref = "Outros")
+baseind19acessointernet$variables$Instrucao3Mod <- relevel(baseind19acessointernet$variables$Instrucao3Mod, ref = "Outros")
+baseind19acessointernet$variables$Instrucao4Mod <- relevel(baseind19acessointernet$variables$Instrucao4Mod, ref = "Outros")
+
+#Variável Dependente/Explicativa: Faixa etaria
+baseind19acessointernet$variables$FaixaCriançamod <- relevel(baseind19acessointernet$variables$FaixaCriançamod, ref = "Outros")
+baseind19acessointernet$variables$FaixaJovemmod <- relevel(baseind19acessointernet$variables$FaixaJovemmod, ref = "Outros")
+baseind19acessointernet$variables$FaixaJovemAdultomod <- relevel(baseind19acessointernet$variables$FaixaJovemAdultomod, ref = "Outros")
+baseind19acessointernet$variables$FaixaAdultamod <- relevel(baseind19acessointernet$variables$FaixaAdultamod, ref = "Outros")
+baseind19acessointernet$variables$FaixaAdulta2mod <- relevel(baseind19acessointernet$variables$FaixaAdulta2mod, ref = "Outros")
+baseind19acessointernet$variables$FaixaIdosomod <- relevel(baseind19acessointernet$variables$FaixaIdosomod, ref = "Outros")
+
+#Variável Dependente/Explicativa: Regiao
+baseind19acessointernet$variables$SUDESTE <- relevel(baseind19acessointernet$variables$SUDESTE, ref = "Outros")
+baseind19acessointernet$variables$SUL <- relevel(baseind19acessointernet$variables$SUL, ref = "Outros")
+baseind19acessointernet$variables$NORTE <- relevel(baseind19acessointernet$variables$NORTE, ref="Outros")
+baseind19acessointernet$variables$NORDESTE <- relevel(baseind19acessointernet$variables$NORDESTE, ref="Outros")
+baseind19acessointernet$variables$CentroOeste <- relevel(baseind19acessointernet$variables$CentroOeste, ref = "Outros")
+
+baseind19acessointernet$variables$dispositivos_modelo <- relevel(baseind19acessointernet$variables$dispositivos_modelo, ref = "Outros")
+
+baseind19acessointernet$variables$hab_computacionais_modelo <- relevel(baseind19acessointernet$variables$hab_computacionais_modelo, ref = "Não")
+
+baseind19acessointernet$variables$ocup_informatizada_modelo <- relevel(baseind19acessointernet$variables$ocup_informatizada_modelo, ref = "Não")
+
+baseind19acessointernet$variables$RacaModelo <- relevel(baseind19acessointernet$variables$RacaModelo, ref = "Outros")
+
