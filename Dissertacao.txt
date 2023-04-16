@@ -1,3 +1,0 @@
-#*************************** TIC Domicílios 2019 - Individuos *******************************
-#A base de dados utilizada é a pesquisa TIC Domicílios de 2019 de dominio da Centro Regional de Estudos para o Desenvolvimento da Sociedade da Informação (Cetic)
-

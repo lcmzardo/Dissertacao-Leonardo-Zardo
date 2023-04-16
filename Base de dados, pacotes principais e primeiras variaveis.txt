@@ -1,0 +1,44 @@
+#*************************** TIC Domicílios 2019 - Individuos *******************************
+#A base de dados utilizada é a pesquisa TIC Domicílios de 2019 de dominio da Centro Regional de Estudos para o Desenvolvimento da Sociedade da Informação (Cetic)
+#IMPORTANTE: Por ser uma pesquisa amostral, toda e qualquer análise deve ser feita utilizando o pacote "survey".
+
+###### Carrega as bases de dados da TIC DOMIC?LIOS 2019 -  Indiv?duos######
+
+load("ticdom_2019_individuos_base_de_microdados_v1.1.RData")
+
+###### Carrega (e instala, se necess?rio) pacotes requeridos #####
+
+if (!require("install.load")) install.packages("install.load")
+suppressMessages(install.load::install_load("tidyverse", "survey", "haven", "labelled"))
+library(tidyverse)
+library(dplyr)
+library(round)
+library(MASS)
+library(psych)
+library(stargazer)
+library(corrplot)
+library(car)
+install.packages("pchisq")
+install.packages("apply_if_")
+library("stargazer")
+library(DescTools)
+library(pscl)
+library(jtools)
+library(bclust)
+install.packages("modEvA")
+
+###### Verificar os resultados dos códigos junto aos resultados divulgado pela Cetic #####
+###### Ao realizar a soma dos pesos, o resultado deve ser igual o total também no site, neste caso 181.083.512 #####
+
+sum(baseind19$variables$PESO)
+
+###### Para verificacação de uma variavel específica, veja abaixo #####
+#Sem o peso amostroal
+
+table(baseind19$variables$SEXO)
+table(baseind19$variables$AREA)
+
+#Com o peso amostral 
+
+svytotal(~SEXO, baseind19)
+svytotal(~AREA, baseind19)
