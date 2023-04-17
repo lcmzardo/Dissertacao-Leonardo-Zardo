@@ -62,3 +62,30 @@ confint(reg.musica)
 confint(reg.audiovisual)
 
 confint(reg.culturapago)
+
+##### Plotagem dos pontos de alavancagem dos modelos/outliers #####
+
+plot(reg.culturageral, which = 5)
+summary(stdres(reg.culturageral))
+plot(1:300)
+
+plot(reg.culturagratuito, which = 5)
+summary(stdres(reg.culturagratuito))
+
+
+plot(reg.culturapago, which = 5)
+summary(stdres(reg.culturapago))
+
+
+plot(reg.audiovisual , which = 5)
+summary(stdres(reg.audiovisual))
+
+plot(reg.museu, which = 5)
+summary(stdres(reg.museu))
+
+plot(reg.games, which = 5)
+summary(stdres(reg.musica))
+
+plot(reg.audiovisual, which = 5)
+summary(stdres(reg.audiovisual))
+summary(stdres(reg.games))
